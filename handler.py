@@ -1,10 +1,11 @@
 import json
+from langchain.chat_models import ChatOpenAI
 
+chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
 def hello(event, context):
     body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
+        "message": chat.predict("Hi!")
     }
 
     response = {
